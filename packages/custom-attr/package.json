@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-custom-attr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -14,7 +14,8 @@
     }
   },
   "scripts": {
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "build": "tsup"
   },
   "peerDependencies": {
     "vue": "^2.7.0 || ^3.2.25"
