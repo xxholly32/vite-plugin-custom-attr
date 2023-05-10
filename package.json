@@ -12,11 +12,12 @@
     "url": "https://github.com/xxholly32/vite-plugin-custom-attr/issues"
   },
   "scripts": {
-    "build": "pnpm run build --filter=\"./packages/*\"",
+    "build": "pnpm run --filter=\"./packages/*\" build",
     "lint": "eslint --fix --ext .js,.ts,.vue .",
     "dev": "pnpm run --filter=\"./packages/*\" dev",
     "dev:pg": "pnpm run --filter=playground dev",
-    "test": "vitest"
+    "test": "vitest",
+    "release": "pnpm build && changeset && changeset version && changeset publish"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.36.0",
