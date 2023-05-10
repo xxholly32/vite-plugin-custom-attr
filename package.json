@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "type": "module",
+  "author": "xxholly32",
+  "license": "MIT",
+  "homepage": "https://github.com/xxholly32/vite-plugin-custom-attr#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxholly32/vite-plugin-custom-attr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xxholly32/vite-plugin-custom-attr/issues"
+  },
+  "scripts": {
+    "build": "pnpm run build --filter=\"./packages/*\"",
+    "lint": "eslint --fix --ext .js,.ts,.vue .",
+    "dev": "pnpm run --filter=\"./packages/*\" dev",
+    "dev:pg": "pnpm run --filter=playground dev",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.36.0",
+    "@changesets/cli": "^2.26.0",
+    "eslint": "^8.36.0",
+    "typescript": "^5.0.2",
+    "tsup": "^6.7.0",
+    "vite": "^4.2.0",
+    "vitest": "^0.31.0",
+    "vue": "^3.2.47"
+  }
+}
