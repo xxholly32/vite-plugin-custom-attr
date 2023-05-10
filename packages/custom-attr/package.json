@@ -1,6 +1,17 @@
 {
   "name": "vite-plugin-custom-attr",
   "version": "0.0.3",
+  "author": "xiangxiao",
+  "description": "Set default values for tags.",
+  "license": "MIT",
+  "homepage": "https://github.com/xxholly32/vite-plugin-custom-attr#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxholly32/vite-plugin-custom-attr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xxholly32/vite-plugin-custom-attr/issues"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
