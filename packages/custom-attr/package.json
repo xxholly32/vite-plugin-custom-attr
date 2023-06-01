@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-custom-attr",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "xiangxiao",
   "description": "Set default values for tags.",
   "license": "MIT",
