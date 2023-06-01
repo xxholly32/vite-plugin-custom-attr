@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-custom-attr",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "xiangxiao",
   "description": "Set default values for tags.",
   "license": "MIT",
@@ -39,11 +39,11 @@
     "vue": "^2.7.0 || ^3.2.25"
   },
   "dependencies": {
+    "crypto-js": "^4.1.1",
+    "serialize-javascript": "^6.0.1",
     "unplugin": "^1.3.1"
   },
   "devDependencies": {
-    "crypto-js": "^4.1.1",
-    "serialize-javascript": "^6.0.1",
     "vue": "^3.4.0"
   },
   "engines": {
