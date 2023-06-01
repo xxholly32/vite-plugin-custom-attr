@@ -20,23 +20,22 @@ export default defineConfig({
           plain: true,
         },
         'el-select': {
-          ':popper-options':
-            `{
-              modifiers: [
-                { name: 'offset', options: { offset: [0, 0] } },
-                {
-                  name: 'applyArrowHide',
-                  enabled: true,
-                  phase: 'write',
-                  fn({ state }) {
-                    const { arrow } = state.elements
-            
-                    if (arrow)
-                      arrow.style.display = 'none'
-                  },
+          'popper-options': {
+            modifiers: [
+              { name: 'offset', options: { offset: [0, 0] } },
+              {
+                name: 'applyArrowHide',
+                enabled: true,
+                phase: 'write',
+                fn({ state }) {
+                  const { arrow } = state.elements
+
+                  if (arrow)
+                    arrow.style.display = 'none'
                 },
-              ]
-            }`,
+              },
+            ],
+          },
         },
       },
     }),

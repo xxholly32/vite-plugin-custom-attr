@@ -1,4 +1,5 @@
 import { createUnplugin } from 'unplugin'
+import serialize from 'serialize-javascript'
 
 interface TagsOptions {
   [key: string]: TagsOptions | String | Boolean
@@ -57,9 +58,12 @@ export default createUnplugin((useOptions: VitePluginCustomPropsOptions = DEFAUL
                 value = attrValue ? `${attr}` : ''
                 break
               case 'object':
-                temp = JSON.stringify(attrValue, null, 2)
-                  .replace(/"(\w+)"(?=:)/g, '$1')
-                  .replace(/"/g, '\'')
+                // https://github.com/yahoo/serialize-javascript#usage
+                // need remove "" from key and replace '' from value
+                temp = serialize(attrValue)
+                  .replace(/"([^"]+)":/g, '$1:')
+                  .replace(/"([^"]+)"/g, '\'$1\'')
+
                 value = `:${attr}="${temp}"`
                 break
             }
