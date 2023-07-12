@@ -1,5 +1,11 @@
 # vite-plugin-custom-attr
 
+## 0.0.9
+
+### Patch Changes
+
+- fix bug
+
 ## 0.0.7
 
 ### Patch Changes
