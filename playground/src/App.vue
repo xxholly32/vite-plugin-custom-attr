@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 
 const value = ref('')
+const input = ref('clearable')
 
 const options = [
   {
@@ -28,6 +29,7 @@ const options = [
 </script>
 
 <template>
+  <el-input v-model="input" />
   <h1>change style</h1>
   <el-button>no type</el-button>
   <el-button type="primary">

@@ -3,15 +3,16 @@ import { defineConfig } from 'vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import Vue from '@vitejs/plugin-vue'
-// import CustomProps from 'vite-plugin-custom-attr'
 import CustomProps from 'vite-plugin-custom-attr/vite'
-// import VueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
   plugins: [
     Vue(),
     CustomProps({
       tags: {
+        'el-input': {
+          clearable: true
+        },
         'h1': {
           style: 'font-size: 2rem;',
         },

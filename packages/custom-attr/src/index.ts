@@ -41,8 +41,8 @@ export default createUnplugin((useOptions: VitePluginCustomPropsOptions = DEFAUL
         const attrs = tags[tag]
         for (const attr in attrs) {
           const attrValue = attrs[attr]
-          const regex = new RegExp(`<${tag}((?=\\s)[^>]*|[^\\s>]*?)>`, 'g') // 构建全局正则表达式匹配标签
-          code = code.replace(regex, (match, p1) => {
+          const regex = new RegExp(`<${tag}((?=\\\\s)[^>]*|[^\\\\s>]*?)(/?)>`, 'g') // 构建全局正则表达式匹配标签
+          code = code.replace(regex, (match, p1, p2) => {
             // 如果已经存在该属性，则不添加
             if (p1.includes(`${attr}=`) || p1.includes(`${attr} `))
               return match
@@ -68,7 +68,7 @@ export default createUnplugin((useOptions: VitePluginCustomPropsOptions = DEFAUL
                 break
             }
 
-            return `<${tag}${p1} ${value}>` // 添加样式属性
+            return `<${tag}${p1} ${value}${p2}>` // 添加 attr 属性
           })
         }
       }

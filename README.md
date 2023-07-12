@@ -27,6 +27,9 @@ export default defineConfig({
     Vue(), 
     CustomProps({
       tags: {
+        'el-input': {
+          clearable: true
+        },
         "h1" : {
           style: "font-size: 2rem;"
         },
@@ -42,6 +45,7 @@ export default defineConfig({
 
 ```vue
 <template>
+  <el-input v-model="input" />
   <h1>change style</h1>
   <el-button>no type</el-button>
   <el-button type="primary">type primay</el-button>
@@ -52,6 +56,7 @@ to
 
 ```vue
 <template>
+  <el-input v-model="input" clearable />
   <h1 style="font-size: 2rem;">change style</h1>
   <el-button type="success" plain>no type</el-button>
   <el-button type="primary" plain>type primay</el-button>
