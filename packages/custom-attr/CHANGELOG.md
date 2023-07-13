@@ -1,5 +1,11 @@
 # vite-plugin-custom-attr
 
+## 0.0.10
+
+### Patch Changes
+
+- add kebab-case
+
 ## 0.0.9
 
 ### Patch Changes
