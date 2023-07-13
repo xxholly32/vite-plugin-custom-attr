@@ -44,7 +44,7 @@ export default createUnplugin((useOptions: VitePluginCustomPropsOptions = DEFAUL
           const attrKebab = camelToKebab(attrWithNoColon)
           const attrValue = attrs[attr]
 
-          const regex = new RegExp(`<${tag}(.*?)(/?)>`, 'g') // find attribute and close tag
+          const regex = new RegExp(`<${tag}([\\s\\S]*?)(/?)>`, 'g') // find attribute and close tag
           code = code.replace(regex, (match, p1, p2) => {
             // if has attr, return
             if (p1.includes(`${attrWithNoColon}=`) || p1.includes(`${attrWithNoColon} `) || p1.includes(`${attrKebab}=`) || p1.includes(`${attrKebab} `))
