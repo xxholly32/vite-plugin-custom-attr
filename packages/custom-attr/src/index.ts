@@ -40,23 +40,26 @@ export default createUnplugin((useOptions: VitePluginCustomPropsOptions = DEFAUL
       for (const tag in tags) {
         const attrs = tags[tag]
         for (const attr in attrs) {
+          const attrWithNoColon = attr.replace(/^:/, '')
+          const attrKebab = camelToKebab(attrWithNoColon)
           const attrValue = attrs[attr]
-          // const regex = new RegExp(`<${tag}((?=\\s)[^>]*|[^\\s>]*?)(/?)>`, 'g') // 构建全局正则表达式匹配标签
-          const regex = new RegExp(`<${tag}(.*?)(/?)>`, 'g') // 构建全局正则表达式匹配标签
+
+          const regex = new RegExp(`<${tag}(.*?)(/?)>`, 'g') // find attribute and close tag
           code = code.replace(regex, (match, p1, p2) => {
-            // 如果已经存在该属性，则不添加
-            if (p1.includes(`${attr}=`) || p1.includes(`${attr} `))
+            // if has attr, return
+            if (p1.includes(`${attrWithNoColon}=`) || p1.includes(`${attrWithNoColon} `) || p1.includes(`${attrKebab}=`) || p1.includes(`${attrKebab} `))
               return match
 
             let value = ''
             let temp = ''
 
+
             switch (typeof attrValue) {
               case 'string':
-                value = `${attr}="${attrValue}"`
+                value = `${attrKebab}="${attrValue}"`
                 break
               case 'boolean':
-                value = attrValue ? `${attr}` : ''
+                value = attrValue ? `${attrKebab}` : `:${attrKebab}="${attrValue}"`
                 break
               case 'object':
                 // https://github.com/yahoo/serialize-javascript#usage
@@ -65,7 +68,7 @@ export default createUnplugin((useOptions: VitePluginCustomPropsOptions = DEFAUL
                   .replace(/"([^"]+)":/g, '$1:')
                   .replace(/"([^"]+)"/g, '\'$1\'')
 
-                value = `:${attr}="${temp}"`
+                value = `:${attrKebab}="${temp}"`
                 break
             }
 
@@ -77,3 +80,7 @@ export default createUnplugin((useOptions: VitePluginCustomPropsOptions = DEFAUL
     },
   }
 })
+
+function camelToKebab(str) {
+  return str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
+}
